@@ -82,6 +82,7 @@ sudo chmod +t groupe1
 sudo chmod +t groupe2
 ```
 __9. Pouvez-vous vous connecter en tant que u1 ? Pourquoi ?__
+
 Il n'est pas possible de se connecter car aucun mot de passe pour cette utilisateur a été configuré. Il n'est donc pas un utilisateur actif. Ainsi il faut configurer un mot de passe. 
 
 
@@ -92,6 +93,7 @@ Pour activer un compte utilisateur on utilise la commande suivante :
 
 
 __11. Quels sont l’uid et le gid de u1 ?__
+
 Lorsque l'on regarde le contenu du fichier /etc/passwd la 3ème colonne correspond à l'uid et la 4ème colonne correspond au gid.
 Pour l'obtenir on utilise le script suivant : 
 ```bash
@@ -101,24 +103,29 @@ echo "le gid de $1 est : $(cat /etc/passwd | grep $1 |cut -d: -f4)";
 ```
 
 __12. Quel utilisateur a pour uid 1003 ?__
+
 Pour savoir quel utilisateur a pour uid 1003 on utilise la commande suivante
 ```bash cat /etc/passwd | cut -d: --fields=1,4 | grep 1003 | cut -d: -f2
 ```
 
 __13. Quel est l’id du groupe groupe1 ?__
+
 Pour le savoir on utilise la commande : 
 ``` cat /etc/group | grep groupe1 | cut -d: -f3 ```
 
 __14. Quel groupe a pour guid 1002 ? ( Rien n’empêche d’avoir un groupe dont le nom serait 1002...)__
+
 Pour connaitre le group dont le gid est 
 ```  cat /etc/group | grep ":1001:" | cut -d: -f1 ``` 
 
 __15. Retirez l’utilisateur u3 du groupe groupe2. Que se passe-t-il ? Expliquez.__
+
 On utilise la commande ```sudo gpasswd -d u3 groupe2``` pour supprimer l'utilisateur u3 du groupe 2.
 Cependant cela nous renvoit que u3 n'est pas membre de groupe2.
 Cela signifie que groupe2 n'est pas un groupe secondaire de u3. En effet il s'agit bien de son groupe principal. 
 
 __16. Modifiez le compte de u4 de sorte que :__
+
 — il expire au 1er juin 2020
 — il faut changer de mot de passe avant 90 jours
 — il faut attendre 5 jours pour modifier un mot de passe
@@ -128,6 +135,7 @@ __16. Modifiez le compte de u4 de sorte que :__
 On utilise la commande suivante : ```sudo chage -d 06/01/20 -M 90 -m 5 -W 14 -E 06/30/2020 ```
 
 __17. Quel est l’interpréteur de commandes (Shell) de l’utilisateur root ?__
+
 On obtient cette information en utilisant la commande : 
 ```cat /etc/passwd | grep root | cut -d: -f7```
 
@@ -137,10 +145,12 @@ Puis on utilise la commande :
 On obtient que le shell utilisé est bien ```/bin/bash```
 
 __18. à quoi correspond l’utilisateur nobody ?__
+
 L'utilisateur nobody est l'utilisateur avec le moins de permissions du systeme. Initialement cet utilisateur était utilisé pour des raisons de sécurité. Si celui ci se fait hacker les dégats sont très limités car il ne dispose pas d'un shell et de droit sur aucun fichiers. 
 
 
 __19. Par défaut, combien de temps la commande sudo conserve-t-elle votre mot de passe en mémoire ?
 Quelle commande permet de forcer sudo à oublier votre mot de passe ?__
+
 Dans une configuration standard la commande sudo garde en mémoire notre mot de pass pour 15 minutes.
 Si l'on souhaite supprimé le mot de passe mise en mémoire par la commande sudo on utilise l'option -k. 

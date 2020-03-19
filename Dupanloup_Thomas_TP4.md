@@ -27,6 +27,7 @@ chmod u+x users.sh
 ```
 
 __4. Donnez deux moyens d’afficher les membres de groupe2__
+
 La premiere technique consiste à utiliser la commande ``` members groupe2 ```
 La seconde technique consiste à utiliser le script suivant : 
 ```bash 
@@ -88,6 +89,7 @@ Il n'est pas possible de se connecter car aucun mot de passe pour cette utilisat
 
 __10. Activez le compte de l’utilisateur u1 et vérifiez que vous pouvez désormais vous connecter avec son
 compte.__
+
 Pour activer un compte utilisateur on utilise la commande suivante : 
 ```sudo passwd u1``` et on entre deux fois le mot de passe que l'on souhaite associer à cet utilisateur.
 

@@ -42,6 +42,7 @@ rm /tmp/.list_users;
 
 __5. Faites de groupe1 le groupe propriétaire de /home/u1 et /home/u2 et de groupe2 le groupe propriétaire
 de /home/u3 et /home/u4__
+
 On utilise les commandes suivantes : 
 ```bash
 sudo chgrp groupe1 /home/u1 /home/u2

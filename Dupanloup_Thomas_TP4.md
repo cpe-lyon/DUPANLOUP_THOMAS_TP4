@@ -16,12 +16,10 @@ On créé un fichier avec nano qui contient les commandes à éxecuter pour obte
 
 ```
 #!/bin/bash
-useradd u1 -g 1001
-useradd u2 -g 1001
-useradd u3 -g 1001
-useradd u2 -g 1002
-useradd u3 -g 1002
-useradd u4 -g 1002
+useradd u1 
+useradd u2 
+useradd u3 
+useradd u4 
 ```
 On éxecute ce script: 
 ```
@@ -41,24 +39,41 @@ cut -d: (sépare en colonne à chaque ":") -f1-4 /etc/passwd (affiche les 4 prem
 __5. Faites de groupe1 le groupe propriétaire de /home/u1 et /home/u2 et de groupe2 le groupe propriétaire
 de /home/u3 et /home/u4__
 
-
+```
+sudo chgrp groupe1 u1
+sudo chgrp groupe1 u2
+sudo chgrp groupe3 u3
+sudo chgrp groupe1 u4
+```
 
 __6. Remplacez le groupe primaire des utilisateurs :__ 
 
-
+```
+sudo usermod u1 -g groupe1
+```
 
 __7. Créez deux répertoires /home/groupe1 et /home/groupe2 pour le contenu commun aux groupes, et
 mettez en place les permissions permettant aux membres de chaque groupe d’écrire dans le dossier
 associé.__
 
+```
+sudo mkdir /home/goupe1
 
+sudo chown groupe1 groupe1
+
+sudo chmod g+w groupe1
+```
 
 __8. Comment faire pour que, dans ces dossiers, seul le propriétaire d’un fichier ait le droit de renommer
 ou supprimer ce fichier ?__
 
-
+```
+on active le sticky bit
+sudo chmod +t groupe1
+```
 
 __9. Pouvez-vous vous connecter en tant que u1 ? Pourquoi ?__
+
 
 
 
@@ -69,11 +84,19 @@ compte.__
 
 __11. Quels sont l’uid et le gid de u1 ?__
 
+
+
 __12. Quel utilisateur a pour uid 1003 ?__
+
+
 
 __13. Quel est l’id du groupe groupe1 ?__
 
+
+
 __14. Quel groupe a pour guid 1002 ? ( Rien n’empêche d’avoir un groupe dont le nom serait 1002...)__
+
+
 
 __15. Retirez l’utilisateur u3 du groupe groupe2. Que se passe-t-il ? Expliquez.__
 

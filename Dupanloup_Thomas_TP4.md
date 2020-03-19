@@ -108,7 +108,8 @@ echo "le gid de $1 est : $(cat /etc/passwd | grep $1 |cut -d: -f4)";
 __12. Quel utilisateur a pour uid 1003 ?__
 
 Pour savoir quel utilisateur a pour uid 1003 on utilise la commande suivante
-```bash cat /etc/passwd | cut -d: --fields=1,4 | grep 1003 | cut -d: -f2
+```bash 
+cat /etc/passwd | cut -d: --fields=1,4 | grep 1003 | cut -d: -f2
 ```
 
 __13. Quel est l’id du groupe groupe1 ?__
@@ -130,9 +131,13 @@ Cela signifie que groupe2 n'est pas un groupe secondaire de u3. En effet il s'ag
 __16. Modifiez le compte de u4 de sorte que :__
 
 — il expire au 1er juin 2020
+
 — il faut changer de mot de passe avant 90 jours
+
 — il faut attendre 5 jours pour modifier un mot de passe
+
 — l’utilisateur est averti 14 jours avant l’expiration de son mot de passe
+
 — le compte sera bloqué 30 jours après expiration du mot de passe
 
 On utilise la commande suivante : ```sudo chage -d 06/01/20 -M 90 -m 5 -W 14 -E 06/30/2020 ```

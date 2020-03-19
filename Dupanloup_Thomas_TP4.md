@@ -117,7 +117,7 @@ __13. Quel est l’id du groupe groupe1 ?__
 Pour le savoir on utilise la commande : 
 ``` cat /etc/group | grep groupe1 | cut -d: -f3 ```
 
-__14. Quel groupe a pour guid 1002 ? ( Rien n’empêche d’avoir un groupe dont le nom serait 1002...)__
+__14. Quel groupe a pour guid 1002 ? ( Rien n’empêche d’avoir un groupe dont le nom serait 1002...)__
 
 Pour connaitre le group dont le gid est 
 ```  cat /etc/group | grep ":1001:" | cut -d: -f1 ``` 
@@ -152,7 +152,7 @@ Puis on utilise la commande :
 ```echo $SHELL```
 On obtient que le shell utilisé est bien ```/bin/bash```
 
-__18. à quoi correspond l’utilisateur nobody ?__
+__18. A quoi correspond l’utilisateur nobody ?__
 
 L'utilisateur nobody est l'utilisateur avec le moins de permissions du systeme. Initialement cet utilisateur était utilisé pour des raisons de sécurité. Si celui ci se fait hacker les dégats sont très limités car il ne dispose pas d'un shell et de droit sur aucun fichiers. 
 
@@ -172,7 +172,7 @@ lignes de texte. Quels sont les droits sur test et fichier ?__
 On créer un dossier dans notre répertoire $HOME ```mkdir /home/admin/test``` 
 On créer un fichier avec la commande : ```echo "ceci est un fichier test" > fichier ```
 
-__2. Retirez tous les droits sur ce fichier (même pour vous), puis essayez de le modifier et de l’afficher en tant que root. Conclusion ? __
+__2. Retirez tous les droits sur ce fichier (même pour vous), puis essayez de le modifier et de l’afficher en tant que root. Conclusion ?__
 
 On supprime tous les droits associé au fichier avec la commande suivante  :
 ```bash sudo chmod ugo-rwx fichier ```
@@ -181,7 +181,7 @@ On étant root on peut encore modifier et lire le fichier.
 
 __3. Redonnez vous les droits en écriture et exécution sur fichier puis exécutez la commande echo "echo
 Hello" > fichier. On a vu lors des TP précédents que cette commande remplace le contenu d’un
-fichier s’il existe déjà. Que peut-on dire au sujet des droits ? __
+fichier s’il existe déjà. Que peut-on dire au sujet des droits ?__
 
 On se redonne les droits avec la commande ```sudo chmod u+wx fichier ```
 On écrit avec ```echo "hello" > fichier```
@@ -274,10 +274,3 @@ Maintenant lorsqu'on regarde droits du fichier /etc/passwd on utilise la command
 On obtient le résultat -rw-r--r-- 
 
 Cela est logique : Les utilisateurs qui ne sont pas root peuvent lire et executer le programme mais pas le modifier. De plus le fichier /etc/passwd peut être modifié uniquement par un root mais reste lisible par tout le monde. 
-
-
-
-
-
-
-

@@ -12,7 +12,7 @@ __1. Commencez par créer deux groupes groupe1 et groupe2__
 __2. Créez ensuite 4 utilisateurs u1, u2, u3, u4 avec la commande useradd, en demandant la création de
 leur dossier personnel et avec bash pour shell__
 
-On utilise les comman
+On utilise les commandes
 ```
 useradd u1 -g 1001
 useradd u2 -g 1001
@@ -20,7 +20,7 @@ useradd u3 -g 1002
 useradd u4 -g 1002
 ```
 
-On éxecute ce script: 
+On execute ce script: 
 ```
 chmod u+x users.sh
 ./users.sh
